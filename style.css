@@ -1,0 +1,94 @@
+.loading-page {
+  position: absolute;
+   top: 0;
+  left: 0;
+  background-color: rgb(3, 63, 2);
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* gap: 1.5rem; */
+  align-items: center;
+  justify-content: center;
+  /* color: #e4e3ef; */
+}
+
+#svg {
+  width: 600px;
+  height: 400px;
+  stroke: white;
+  fill: transparent;
+  stroke-width: 0.5px;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 1000;
+  animation: draw 3s ease;
+}
+ 
+@keyframes draw {
+  0% {
+    /* fill: transparent; */
+    stroke-dashoffset: 1000;
+  }
+  80%{
+    fill: transparent;
+  }
+  100% {
+    /* fill: rgb(13, 45, 13); */
+    stroke-dashoffset: 0;
+  }
+}
+
+.name-container {
+  height: 50px;
+}
+
+.logo-name {
+  color: #fff;
+  font-size: 50px;
+  letter-spacing: 12px;
+  text-transform: uppercase;
+  margin-left: 20px;
+  font-weight: bolder;
+}
+
+
+/* Mobile View
+@media (max-width: 768px) {
+  .container {
+      width: 100%;
+      height: 100vh;
+  }
+
+  #canvas {
+      width: 100%;
+      height: 100%;
+  }
+
+  .nav {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .nav a {
+      display: block;
+      padding: 10px;
+  }
+
+  #text-overlay {
+      font-size: 14px;
+  }
+}
+
+/* Tablet View 
+@media (max-width: 1024px) {
+  .container {
+      width: 100%;
+      height: 100vh;
+  }
+
+  #text-overlay {
+      font-size: 16px;
+  }
+}
+ */

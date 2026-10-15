@@ -1,0 +1,209 @@
+@font-face {
+    font-family: "mestika";
+    src: url("fonts/Mestika.otf");
+}
+
+@font-face {
+    font-family: "botham";
+    src: url("fonts/Botham-Reguler.otf");
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Manrope';
+}
+body{
+    background-image: url(Images/mountains6.jpg);
+    background-size: cover;
+}
+.container{
+    background:#f0f7e2;
+    width: 50vw;
+    height: 90vh;
+    padding: 80px 170px;
+    border-radius: 0px 40px 40px 0px;
+    margin-top: 0px;
+    /* background: purple; */
+}
+.logo {
+    display: block; /* Ensures it takes up space */
+    margin: 0 auto; /* Centers the logo */
+    width: 60px; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 20px;
+    top: 200px;
+    /* background-color:#757575; */
+}
+
+
+form{
+    margin:0 auto;
+    margin-top: 40px;
+}
+.form-title{
+    font-size:30px;
+    text-align:center;
+    margin-top: 50px;
+    font-family: 'mestika';
+}
+input{
+    color:inherit;
+    width:100%;
+    background-color:transparent;
+    border:none;
+    border-bottom:1px solid #757575;
+    padding-left:1.5rem;
+    padding-bottom: 10px; 
+    font-size:15px;
+}
+.input-group{
+    padding:1% 0;
+    position:relative;
+
+}
+.input-group i{
+    position:absolute;
+    color:black;
+}
+input:focus{
+    background-color: transparent;
+    outline:transparent;
+    border-bottom:2px solid hsl(327,90%,28%);
+}
+input::placeholder{
+    color:transparent;
+}
+label{
+    color:#757575;
+    position:relative;
+    left:1.3em;
+    top: -2.3rem;
+    cursor:auto;
+    transition:0.3s ease all;
+}
+input:focus~label,input:not(:placeholder-shown)~label{
+    top:-4em;
+    color:hsl(327,90%,28%);
+    font-size:15px;
+}
+.recover{
+    text-align:right;
+    font-size:1rem;
+    margin-bottom:1rem;
+
+}
+.recover a{
+    text-decoration:none;
+    color: #4d6641;
+}
+.recover a:hover{
+    color: black;
+    text-decoration:underline;
+}
+.btn{
+    font-size:1.1rem;
+    padding:8px 0;
+    border-radius:10px;
+    outline:none;
+    border:none !important;
+    width:100%;
+    background:#4d6641 !important;
+    color:white;
+    cursor:pointer;
+    transition:0.9s;
+    margin-top: 50px;
+}
+.btn:hover{
+    background:#07001f !important;
+}
+
+.links {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 5px; 
+    margin-top: 30px;
+    font-weight: bold;
+    padding: 10px 20px; 
+
+}
+
+button{
+    color:#4d6641;
+    border:none;
+    background-color:transparent;
+    font-size:1rem;
+    font-weight:bold;
+}
+
+
+button:hover{
+    text-decoration:underline;
+    color:black;
+    cursor: pointer;
+}
+
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    width:80vw;
+    height: 90vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#fact-container {
+    position: absolute;
+    bottom: 20px; /* Position the facts at the bottom */
+    left: 20px;  /* Align text to the left side */
+    max-width: 80%; /* Prevent text from stretching too far */
+}
+
+#fact-heading {
+    width: 400px;
+    font-family: "Botham";
+    font-size: 35px;
+    margin-bottom: 20px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#fact-text {
+    font-size: 20px;
+    margin-bottom: 20px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.transparent {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    background-color: transparent;
+    color: #f0f7e2;
+    border-radius: 40px 0px 0px 40px;
+    border: 3px solid #f0f7e2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: flex-end; 
+    padding: 20px;
+    text-align: left; 
+    font-size: 18px;
+    transition: opacity 0.5s ease-in-out;
+}
+.eye-icon {
+    position: absolute;
+    /* right: -10px; */
+    /* top: -1%; */
+    left: 350px;
+    bottom: 90%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: gray;
+}

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+
+        @font-face {
+            font-family: "Botham" ;
+            src: url('Botham-Reguler.otf');
+        }
+
+        @font-face {
+            font-family: 'Mestika';
+            src: url('Mestika.otf');
+        }
+        
+        body {
+            font-family: 'Manrope', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("Images/background1.jpg"); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        .menu-wrapper{
+            margin-bottom: 0px;
+        }
+
+        header {
+            height: 100px;
+            background: #F0F8E3;
+            color: white;
+            background-size: auto;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-family: "Botham";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        header .header-content{
+            z-index: 2;
+            text-align: center;
+            font-size: 3rem;
+            font-family: "Mestika";
+            color:#4D6541;
+        }
+
+        /* .menu-wrapper {
+            max-width: 1100px;
+            margin: 2rem auto;
+            background: #F0F8E3;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+            padding: 1rem;
+        } */
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+            border-radius: 8px;
+            max-width: 1200px;
+            margin: 2rem auto;
+            background: #F0F8E3;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: #000000;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #4D6541;
+            color: #F0F8E3;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            display: none;
+        }
+
+        .container.active {
+            display: block;
+        }
+
+        select{
+            width: 102%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            /* background: #f9f9f9; */
+            transition: border-color 0.3s;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #28a745;
+        }
+
+        .heading {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            font-family: 'Mestika';
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            /* background-image: url(Images/abstract1.jpg); */
+        }
+
+        .category {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-weight: 400;
+            color: #555;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .input, select {
+            width: 100% !important;
+            padding: 0.8rem;
+            max-width: none !important;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin: 10px 0px;
+            transition: border-color 0.3s;
+            appearance: none; /* Removes browser default styling */
+        }
+        select.input{
+            width: 102.5% !important;
+        }
+        
+        .container, .category {
+            width: 100% !important;
+        }
+
+
+        input:focus {
+            outline: none;
+            border-color: #4D6541;
+        }
+
+        .submit-btn {
+            background:  #4D6541;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem; 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: background 0.5s, transform 0.5s;
+            display: block;
+            margin: 1rem auto;
+            width: auto;
+        }
+
+        .submit-btn:hover {
+            background: black;
+        }
+        .prev-btn:hover, .next-btn:hover{
+            background-color: #4D6541 ;
+            color: white;
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: #218838;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .radio{
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .radio-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .radio-buttons label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .next-btn, .prev-btn {
+            /* background: #7c8a74; Dark green */
+            background: #F0F8E3;
+            border: 2px solid #4D6541;
+            color: black;
+            width: 100px;
+            /* height: 30px; */
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); */
+            transition: background 0.3s, transform 0.3s;
+            display: inline-block;
+            /* width: auto; */
+            margin: 1rem 0.5rem;
+    }
+
+
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+
+        @media (max-width: 768px) {
+            .submit-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">Carbon Footprint Calculator</div>
+    </header>
+    
+    <div class="menu-wrapper">
+        <nav class="menu">
+            <a href="#" data-target="household">Household</a>
+            <a href="#" data-target="flights">Flights</a>
+            <a href="#" data-target="car">Car</a>
+            <a href="#" data-target="motorbike">Motorbike</a>
+            <a href="#" data-target="publicTransport">Public Transport</a>
+            <a href="#" data-target="Lifestyle">Lifestyle</a>
+        </nav>
+    </div>
+    <form action="calculator.php" method="post">
+        <div class="container active" id="household">
+            <h2>Household</h2>
+            <label for="electricity">Electricity (kWh/month):</label>
+            <input type="number" id="electricity" name="electricity" class="input" required>
+            <label for="naturalGas">Natural Gas (kWh/month):</label>
+            <input type="number" id="naturalGas" name="naturalGas" class="input" required>
+            <label for="lpg">LPG (liters/month):</label>
+            <input type="number" id="lpg" name="lpg" class="input" required>
+            <label for="coal">Coal (tons/month):</label>
+            <input type="number" id="coal" name="coal" class="input" required>
+            <label for="wood">Wood (tons/month):</label>
+            <input type="number" id="wood" name="wood" class="input" required>
+            <div class="button-container">
+                <button type="button" class="next-btn">Next</button>
+            </div>
+            
+        </div>
+        
+        <div class="container" id="flights">
+            <h2>Flights</h2>
+            <label for="flightType">Flight Type:</label>
+            <select id="flightType" name="flightType" class="input">
+                <option value="return">Return Trip</option>
+                <option value="one-way">One Way Trip</option>
+            </select>
+            <label for="flightDistance">Flight Distance (km):</label>
+            <input type="number" id="flightDistance" name="flightDistance" class="input" required>
+            <label for="flightClass">Flight Class:</label>
+            <select id="flightClass" name="flightClass" class="input">
+                <option value="economy">Economy</option>
+                <option value="business">Business</option>
+                <option value="first-class">First Class</option>
+            </select>
+            <div class="button-container">
+                <button type="button" class="prev-btn">Previous</button>
+                <button type="button" class="next-btn">Next</button>
+            </div>
+            
+        </div>
+        
+        <div class="container" id="car">
+            <h2>Car</h2>
+            <label for="carFuel">Fuel Type:</label>
+            <select id="carFuel" name="carFuel" class="input">
+                <option value="diesel">Diesel</option>
+                <option value="gasoline">Gasoline</option>
+                <option value="electric">Electric</option>
+                <option value="hybrid">Hybrid</option>
+            </select>
+            <label for="annualMileage">Annual Mileage (km):</label>
+            <input type="number" id="annualMileage" name="annualMileage" class="input" required>
+            <label for="fuelEfficiency">Fuel Efficiency (L/100km):</label>
+            <input type="number" id="fuelEfficiency" name="fuelEfficiency" class="input" required>
+            <div class="button-container">
+                <button type="button" class="prev-btn">Previous</button>
+                <button type="button" class="next-btn">Next</button>
+            </div>
+            
+        </div>
+        
+        <div class="container" id="motorbike">
+            <h2>Motorbike</h2>
+            <label for="motorbikeFuel">Fuel Type:</label>
+            <select id="motorbikeFuel" name="motorbikeFuel" class="input">
+                <option value="gasoline">Gasoline</option>
+                <option value="electric">Electric</option>
+            </select>
+            <label for="motorbikeMileage">Annual Mileage (km):</label>
+            <input type="number" id="motorbikeMileage" name="motorbikeMileage" class="input" required>
+            <label for="motorbikeEfficiency">Fuel Efficiency (L/100km):</label>
+            <input type="number" id="motorbikeEfficiency" name="motorbikeEfficiency" class="input" required>
+            <div class="button-container">
+                <button type="button" class="prev-btn">Previous</button>
+                <button type="button" class="next-btn">Next</button>
+            </div>
+            
+        </div>
+        
+        <div class="container" id="publicTransport">
+            <h2>Public Transport</h2>
+            <label for="train">Train (hours/week):</label>
+            <input type="number" id="train" name="train" class="input">
+            <label for="bus">Bus (hours/week):</label>
+            <input type="number" id="bus" name="bus" class="input">
+            <label for="subway">Subway (hours/week):</label>
+            <input type="number" id="subway" name="subway" class="input">
+            <div class="button-container">
+                <button type="button" class="prev-btn">Previous</button>
+                <button type="button" class="next-btn">Next</button>
+            </div>
+            
+        </div>
+        
+        <div class="container" id="lifestyle">
+            <h2>Lifestyle</h2>
+            <label for="diet">Diet:</label>
+            <select id="diet" name="diet" class="input">
+                <option value="meat-most">Meat in most meals</option>
+                <option value="meat-some">Meat in some meals</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+            </select>
+            <label for="localProducts">Do you buy local products?</label>
+            <select id="localProducts" name="localProducts" class="input">
+                <option value="always">Always</option>
+                <option value="sometimes">Sometimes</option>
+                <option value="never">Never</option>
+            </select>
+            <label for="responsibleCompanies">Do you buy from environmentally responsible companies?</label>
+            <select id="responsibleCompanies" name="responsibleCompanies" class="input">
+                <option value="always">Always</option>
+                <option value="sometimes">Sometimes</option>
+                <option value="never">Never</option>
+            </select>
+            <label for="expenditure">Expenditures ($/month):</label>
+            <input type="number" id="expenditure" name="expenditure" class="input" required>
+            <div class="button-container">
+                <button type="button" class="prev-btn">Previous</button>
+            </div>
+            
+            <button type="submit" class="submit-btn">Calculate</button>
+        </div>
+    </form>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            const containers = document.querySelectorAll('.container');
+            const menuLinks = document.querySelectorAll('.menu a');
+            let currentIndex = 0;
+
+            function showContainer(index) {
+                containers.forEach((container, i) => {
+                    container.classList.toggle('active', i === index);
+                });
+
+                // Update menu link styling
+                menuLinks.forEach(link => {
+                    const targetId = link.getAttribute('data-target');
+                    if (containers[index].id === targetId) {
+                        link.style.backgroundColor = "#4c5145"; // Dark green background
+                        link.style.color = "#F0F8E3"; // Light text
+                    } else {
+                        link.style.backgroundColor = ""; // Reset styles
+                        link.style.color = ""; 
+                    }
+                });
+            }
+
+            document.querySelectorAll('.next-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (currentIndex < containers.length - 1) {
+                        currentIndex++;
+                        showContainer(currentIndex);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.prev-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        showContainer(currentIndex);
+                    }
+                });
+            });
+
+            menuLinks.forEach((link, index) => {
+                link.addEventListener('click', event => {
+                    event.preventDefault();
+                    currentIndex = index; // Update the index when clicking menu links
+                    showContainer(currentIndex);
+                });
+            });
+
+            // Show first container by default
+            showContainer(currentIndex);
+        });
+
+        </script>
+</body>
+</html>

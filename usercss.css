@@ -1,0 +1,98 @@
+        body {
+            font-family: 'Manrope', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        /* .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #2C3E50;
+            color: white;
+        } */
+        /* .fas fa-user {
+            font-size: 24px;
+            cursor: pointer;
+            display: block; 
+            position: absolute;
+            top: 5px;
+            right: 20px;
+            z-index: 1000;
+            background-color: red;
+            padding: 10px;
+            border-radius: 5px;
+        } */
+
+        /* ul{
+            background-color: black;
+        }
+        li:hover{
+            background-color: black;
+        }
+         */
+        /* .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        } */
+        #user-btn i {
+            font-size: 24px;   /* Adjust size */
+            color: white;      /* Ensure it's visible */
+            cursor: pointer;  
+            display: inline-block;
+            padding: 10px;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 60px;
+            background: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            /* border-radius: 5px; */
+            width: 180px;
+        }
+        .dropdown ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .dropdown ul li {
+            padding: 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        .dropdown ul li:last-child {
+            border-bottom: none;
+        }
+        .dropdown ul li:hover {
+            background: #f1f1f1;
+        }
+        .container {
+            width: 750px;
+            margin: 20px auto;
+            /* background-color: #2C3E50; */
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 5px;
+            height: 10px;
+            margin-top: 10px;
+        }
+        .progress {
+            width: 60%;
+            background: #2C3E50;
+            height: 10px;
+            border-radius: 5px;
+        }
+

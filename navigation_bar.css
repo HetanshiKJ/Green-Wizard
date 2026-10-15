@@ -1,0 +1,35 @@
+#header {
+    display: flex;
+    justify-content: flex-end; 
+    padding: 20px 80px;
+    background-color: black;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    font-family: "Manrope";
+}
+
+.nav a {
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #F0F8E3;
+    padding: 0 30px;
+    transition: 0.3s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: #ace586;
+}
+
+.nav a.active::after,
+.nav a:hover::after {
+    content:"";
+    width: 30%;
+    height: 2px;
+    background: #9ade77;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
